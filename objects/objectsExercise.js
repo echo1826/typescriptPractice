@@ -24,6 +24,7 @@ var cats = {
 // For example...
 // getProfit(cats) => -21166652
 function getProfit(singleMovie) {
-    return singleMovie.boxOffice.grossWorldwide = singleMovie.boxOffice.budget;
+    var _a = singleMovie.boxOffice, grossWorldwide = _a.grossWorldwide, budget = _a.budget;
+    return grossWorldwide - budget;
 }
-console.log(getProfit(cats));
+console.log(getProfit(cats), getProfit(dune));

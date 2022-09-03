@@ -40,7 +40,8 @@ const cats: Movie = {
 // For example...
 // getProfit(cats) => -21166652
 function getProfit(singleMovie: Movie): number {
-  return singleMovie.boxOffice.grossWorldwide = singleMovie.boxOffice.budget;
+  const {grossWorldwide, budget} = singleMovie.boxOffice;
+  return grossWorldwide - budget;
 }
 
-console.log(getProfit(cats));
+console.log(getProfit(cats), getProfit(dune));
