@@ -1,3 +1,4 @@
+"use strict";
 // function parameters
 //! This function parameter declaration gives the parameter an implicit type of any
 function areaOfSquare(num) {
@@ -15,20 +16,19 @@ parameterTypeSquareArea(1);
 //! This will produce a TS error saying it must be a number
 // parameterTypeSquareArea(false);
 // default parameters
-function defaultParams(person) {
-    if (person === void 0) { person = "stranger"; }
-    return "Hi there, ".concat(person);
+function defaultParams(person = "stranger") {
+    return `Hi there, ${person}`;
 }
 defaultParams();
 defaultParams("not default");
 // function return types, just like variables
 function returnNumberType() {
-    var number = 9;
+    let number = 9;
     return number;
 }
 // the void return type means the function returns nothing out of it
 function returnNothing() {
-    var number = 9;
+    let number = 9;
     // ! this will cause a TS error saying you can't return a value out of this function
     // return number;
     //! this will not cause an error because you are not returning a value out of this function
@@ -37,8 +37,8 @@ function returnNothing() {
 // annonymous functions
 // in this annonymous function, TS can read the array and determine the typing of the parameter without having to declare it explicitly, you can also explicitly say the data type of the parameter
 // same rules applies to the return type of the annonymous function
-var colors = ['red', 'green', 'blue'];
-colors.map(function (color) {
+const colors = ['red', 'green', 'blue'];
+colors.map(color => {
     return color.toUpperCase();
 });
 // never return type

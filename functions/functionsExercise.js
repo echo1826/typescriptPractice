@@ -1,12 +1,12 @@
+"use strict";
 // **********************************************
 // ******************* PART 1 *******************
 // **********************************************
 // Write a function called "twoFer" that accepts a person's name
 // It should return a string in the format "one for <name>, one for me"
 // If no name is provided, it should default to "you"
-function twoFer(name) {
-    if (name === void 0) { name = "you"; }
-    return "one for ".concat(name, ", one for me");
+function twoFer(name = "you") {
+    return `one for ${name}, one for me`;
 }
 // twoFer() => "One for you, one for me"
 // twoFer("Elton") => "One for Elton, one for me"
