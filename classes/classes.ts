@@ -12,4 +12,15 @@ class Player {
         this.first = first;
         this.last = last;
     }
+
+    
 }
+
+
+// Parameter Properties Shorthand
+// class Player {
+    // private score: number = 0;
+    // This is shorthand for doing the same as above
+    // constructor(public first: string, public last: string, private score: number) {}
+// }
+
