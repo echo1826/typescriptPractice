@@ -1,20 +1,20 @@
-class Player {
-    // intialize properties first to be declared in the constructor
-    readonly first: string; // can determine properties to be non-mutable by having it as readonly
-    readonly last: string;
+// class Player {
+//     // intialize properties first to be declared in the constructor
+//     readonly first: string; // can determine properties to be non-mutable by having it as readonly
+//     readonly last: string;
 
-    // class variables
-    score: number = 0;
-    // typescript can implicitly decide the type on intialization
-    numLives = 10;
+//     // class variables
+//     score: number = 0;
+//     // typescript can implicitly decide the type on intialization
+//     numLives = 10;
 
-    constructor(first: string, last: string) {
-        this.first = first;
-        this.last = last;
-    }
+//     constructor(first: string, last: string) {
+//         this.first = first;
+//         this.last = last;
+//     }
 
     
-}
+// }
 
 
 // Parameter Properties Shorthand
@@ -24,3 +24,42 @@ class Player {
     // constructor(public first: string, public last: string, private score: number) {}
 // }
 
+class Player {
+    constructor(
+        public first: string,
+        public last: string,
+        private _score: number
+    ) {}
+
+    private secretMethod(): void {
+        console.log("Secret method!")
+    }
+
+    get fullName(): string {
+        return `${this.first} ${this.last}`;
+    }
+
+    get score(): number {
+        return this._score;
+    }
+
+    set newScore(score: number) {
+        if(score > 0) {
+            this._score = score;
+        } else {
+            throw new Error("Score cannot be negative");
+        }
+    }
+
+    set firstName(firstName: string) {
+        this.first = firstName;
+    }
+
+    set lastName(lastName: string) {
+        this.last = lastName;
+    }
+}
+// Protected
+class SuperPlayer extends Player {
+    public isAdmin: boolean = true;
+}
